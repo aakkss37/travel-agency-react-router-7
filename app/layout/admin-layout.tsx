@@ -1,5 +1,8 @@
 import React from "react";
 import { Outlet } from "react-router";
+import pkg from "@syncfusion/ej2-react-navigations";
+const { SidebarComponent } = pkg;
+import NavItems from "components/NavItems";
 
 type Props = {};
 
@@ -7,19 +10,12 @@ const AdminLayout = (props: Props) => {
   return (
     <div className="admin-layout">
       <aside className="w-full max-w-[270px] hidden lg:block">
-        <ul>
-          <li>Dashboard</li>
-          <li>Users</li>
-          <li>Settings</li>
-        </ul>
+        <SidebarComponent>
+          <NavItems />
+        </SidebarComponent>
       </aside>
       <aside className="admin-layout__content">
-        <header className="admin-layout__content__header">
-          <h1>Admin Dashboard</h1>
-        </header>
-        <main className="admin-layout__content__main">
-          <Outlet />
-        </main>
+        <Outlet />
       </aside>
     </div>
   );
